@@ -1,0 +1,993 @@
+{
+	"info": {
+		"_postman_id": "3c70c4f1-34bd-40cb-ae3f-2a9f31514aaf",
+		"name": "BetaBrite Tests and Run",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25452929-3c70c4f1-34bd-40cb-ae3f-2a9f31514aaf"
+	},
+	"item": [
+		{
+			"name": "Get Info",
+			"item": [
+				{
+					"name": "Get Markup Tokens",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "04313617-af1a-4354-86fb-d3d4e09792fa",
+								"exec": [
+									"",
+									"",
+									"pm.test(\"First element in response array has description property\", function () {",
+									"    pm.expect((pm.response.json())[0]).to.have.property('description');",
+									"});",
+									"",
+									"pm.test(\"First element in response array has token_text property\", function () {",
+									"    pm.expect((pm.response.json())[0]).to.have.property('token_text');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7a3abbb0-ddc9-45bf-a824-88e65a446587",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Enumerations/MarkupTokens",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Enumerations",
+								"MarkupTokens"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "edfd7764-7275-409f-9739-517d6ea19c42",
+							"name": "Get Markup Tokens",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Enumerations/MarkupTokens",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Enumerations",
+										"MarkupTokens"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.6"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:37:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1741"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"token_text\": \"<red>\",\n        \"description\": \"Set text color to red\"\n    },\n    {\n        \"token_text\": \"<green>\",\n        \"description\": \"Set text color to green\"\n    },\n    {\n        \"token_text\": \"<amber>\",\n        \"description\": \"Set text color to amber\"\n    },\n    {\n        \"token_text\": \"<dimred>\",\n        \"description\": \"Set text color to dim red\"\n    },\n    {\n        \"token_text\": \"<dimgreen>\",\n        \"description\": \"Set text color to dim green\"\n    },\n    {\n        \"token_text\": \"<brown>\",\n        \"description\": \"Set text color to brown\"\n    },\n    {\n        \"token_text\": \"<orange>\",\n        \"description\": \"Set text color to orange\"\n    },\n    {\n        \"token_text\": \"<yellow>\",\n        \"description\": \"Set text color to yellow\"\n    },\n    {\n        \"token_text\": \"<rainbow1>\",\n        \"description\": \"Set text color to 'rainbow1'\"\n    },\n    {\n        \"token_text\": \"<rainbow2>\",\n        \"description\": \"Set text color to 'rainbow2'\"\n    },\n    {\n        \"token_text\": \"<color_mix>\",\n        \"description\": \"Set text color to 'mix'\"\n    },\n    {\n        \"token_text\": \"<flash_on>\",\n        \"description\": \"Characters after this token will flash\"\n    },\n    {\n        \"token_text\": \"<flash_off>\",\n        \"description\": \"Characters after this token will not flash\"\n    },\n    {\n        \"token_text\": \"<degree>\",\n        \"description\": \"Degree symbol\"\n    },\n    {\n        \"token_text\": \"<fixed_width>\",\n        \"description\": \"Should be first token in message - left-justify and make text fixed width\"\n    },\n    {\n        \"token_text\": \"<time>\",\n        \"description\": \"Insert current time\"\n    },\n    {\n        \"token_text\": \"<week_day>\",\n        \"description\": \"Insert current day of the week\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Display Modes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"",
+									"pm.test(\"First element in response array has display_mode\", function () {",
+									"    pm.expect((pm.response.json())[0]).to.have.property('display_mode');",
+									"});",
+									"",
+									"pm.test(\"First element in response array has description\", function () {",
+									"    pm.expect((pm.response.json())[0]).to.have.property('description');",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "f596317f-fd10-4f10-a3ab-cfc58d9f32f0"
+							}
+						}
+					],
+					"id": "e287f093-bfbd-49f5-ba64-884dc722ceed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Enumerations/DisplayModes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Enumerations",
+								"DisplayModes"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "abc55168-eaf2-49b8-a84a-075115c47a91",
+							"name": "Get Display Modes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Enumerations/DisplayModes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Enumerations",
+										"DisplayModes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.6"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:38:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "459"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"display_mode\": \"HOLD\",\n        \"description\": \"Holds the message statically on the sign, unless the message is longer than the sign in which case it will repeatedly scroll the message across the sign\"\n    },\n    {\n        \"display_mode\": \"FLASH\",\n        \"description\": \"Repeatedly flashes the message on the sign\"\n    },\n    {\n        \"display_mode\": \"ROTATE\",\n        \"description\": \"Repeatedly scrolls the message across the sign\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Control Commands",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"",
+									"pm.test(\"First element in response array has control_command\", function () {",
+									"    pm.expect((pm.response.json())[0]).to.have.property('control_command');",
+									"});",
+									"",
+									"pm.test(\"First element in response array has description\", function () {",
+									"    pm.expect((pm.response.json())[0]).to.have.property('description');",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "633bd6f3-2caf-41ce-a368-77e24374a8c9"
+							}
+						}
+					],
+					"id": "a6013289-a4e1-4257-900b-f9fc6d6a5a81",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/Enumerations/ControlCommands",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Enumerations",
+								"ControlCommands"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "35907ff5-0113-474d-8fe5-758e06357081",
+							"name": "Get Control Commands",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Enumerations/ControlCommands",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Enumerations",
+										"ControlCommands"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.6"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:38:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "419"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"control_command\": \"SET_TIME\",\n        \"description\": \"Sets the current time on sign's internal clock\"\n    },\n    {\n        \"control_command\": \"SET_TIME_FORMAT\",\n        \"description\": \"Sets the format of the time displayed on the sign: 'S' = standard, 'M' = military\"\n    },\n    {\n        \"control_command\": \"SET_DAY_OF_WEEK\",\n        \"description\": \"Sets the day of the week on the sign: 0-6\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"id": "afa0fcf8-93bf-44be-a724-2a480e4e943a"
+		},
+		{
+			"name": "Prep and Config",
+			"item": [
+				{
+					"name": "Set Day of Week",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var current_date = new Date();",
+									"",
+									"",
+									"pm.collectionVariables.set(\"current_day\", (current_date.getDay() + 1).toString())",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"id": "8670a6ca-3d1e-4897-8626-75c86ca40529"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set day of week command result OK\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.result).to.eql(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "af3e7bfb-1765-4b0a-b4b4-dc6cb964ae58"
+							}
+						}
+					],
+					"id": "937b59e5-02d1-434f-ac4c-f4de6812726d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"command\": \"SET_DAY_OF_WEEK\",\n  \"parameter\": \"{{current_day}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Write/ControlCommand",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Write",
+								"ControlCommand"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "909eeafe-75f7-42c6-ba48-96f25cc03806",
+							"name": "Set Day of Week",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"command\": \"SET_DAY_OF_WEEK\",\n  \"parameter\": \"{{current_day}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Write/ControlCommand",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Write",
+										"ControlCommand"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.6"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:38:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"OK\",\n    \"result_message\": \"Control command sent to sign\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Set Time",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var current_time = new Date();",
+									"",
+									"var time_str = current_time.getHours().toString().padStart(2, '0') + current_time.getMinutes().toString().padStart(2, '0');",
+									"",
+									"console.info(\"time_str value: \" + time_str);",
+									"",
+									"pm.collectionVariables.set(\"military_time\", time_str);",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"id": "9ddafe95-594e-47b7-97b2-92ec3fd59e7c"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set time command result OK\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.result).to.eql(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "66acb7dd-5f79-41fa-8fa2-59045302ab5a"
+							}
+						}
+					],
+					"id": "718efa41-0ba2-40d2-83b1-e41672fb4dfd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"com_port\": \"{{com_port}}\",\n  \"command\": \"SET_TIME\",\n  \"parameter\": \"{{military_time}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Write/ControlCommand",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Write",
+								"ControlCommand"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "4996759d-2824-4582-bffa-a6d6119ecb19",
+							"name": "Set Time",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"com_port\": \"{{com_port}}\",\n  \"command\": \"SET_TIME\",\n  \"parameter\": \"{{military_time}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Write/ControlCommand",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Write",
+										"ControlCommand"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.6"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:39:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"OK\",\n    \"result_message\": \"Control command sent to sign\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Set Time Format",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "c6e2c51e-18e0-4d9c-a9a4-3bfe304d3471"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Set time format command result OK\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.result).to.eql(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "705f488c-4608-4925-a318-e508152b0387"
+							}
+						}
+					],
+					"id": "d5939da5-5fb1-4b85-af64-c48a8b90c292",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"com_port\": \"{{com_port}}\",\n  \"command\": \"SET_TIME_FORMAT\",\n  \"parameter\": \"S\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Write/ControlCommand",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Write",
+								"ControlCommand"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "30fb2aaa-6f98-4803-aef3-5f77913b4068",
+							"name": "Set Time Format",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"com_port\": \"{{com_port}}\",\n  \"command\": \"SET_TIME_FORMAT\",\n  \"parameter\": \"S\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Write/ControlCommand",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Write",
+										"ControlCommand"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.6"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:39:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"OK\",\n    \"result_message\": \"Control command sent to sign\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Current Temp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"var temp = Math.round(Number(jsonData.data.outdoor.temperature.value) * 10)/10;",
+									"var temp_str = temp.toString();",
+									"",
+									"if(temp >= 100)",
+									"    temp_str = temp_str.substr(0,3);",
+									"",
+									"//console.info(\"Ecowitt API Temp: \" + Math.round(temp * 10)/10 + \" °F\");",
+									"",
+									"pm.test(\"Temperature should be a number between -20 and 130\", function () {",
+									"    pm.expect(temp).to.be.greaterThan(-20).and.lessThan(130);",
+									"});",
+									"",
+									"pm.collectionVariables.set(\"current_temp\", temp_str);",
+									""
+								],
+								"type": "text/javascript",
+								"id": "a2b3457d-ca67-4787-8bb8-4e4ad5b897a6"
+							}
+						}
+					],
+					"id": "2a14a492-7d8b-4c72-8fd8-ecc8e0190106",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ecowitt_url}}/api/v3/device/real_time?application_key={{ecowitt_app_id}}&api_key={{ecowitt_key}}&mac={{ecowitt_mac}}&call_back=all",
+							"host": [
+								"{{ecowitt_url}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"device",
+								"real_time"
+							],
+							"query": [
+								{
+									"key": "application_key",
+									"value": "{{ecowitt_app_id}}"
+								},
+								{
+									"key": "api_key",
+									"value": "{{ecowitt_key}}"
+								},
+								{
+									"key": "mac",
+									"value": "{{ecowitt_mac}}"
+								},
+								{
+									"key": "call_back",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "1e5d95d0-7a6b-4b86-ae90-54adf1fe6098",
+							"name": "Get Current Temp",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ecowitt_url}}/api/v3/device/real_time?application_key={{ecowitt_app_id}}&api_key={{ecowitt_key}}&mac={{ecowitt_mac}}&call_back=all",
+									"host": [
+										"{{ecowitt_url}}"
+									],
+									"path": [
+										"api",
+										"v3",
+										"device",
+										"real_time"
+									],
+									"query": [
+										{
+											"key": "application_key",
+											"value": "{{ecowitt_app_id}}"
+										},
+										{
+											"key": "api_key",
+											"value": "{{ecowitt_key}}"
+										},
+										{
+											"key": "mac",
+											"value": "{{ecowitt_mac}}"
+										},
+										{
+											"key": "call_back",
+											"value": "all"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Tengine"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=86400; includeSubDomains"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:39:34 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Via",
+									"value": "cache28.l2et15-7[223,0], cache2.us17[383,0]"
+								},
+								{
+									"key": "Timing-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "EagleId",
+									"value": "a3b5429616768643745085636e"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 0,\n    \"msg\": \"success\",\n    \"time\": \"1676864374\",\n    \"data\": {\n        \"outdoor\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"67.8\"\n            },\n            \"feels_like\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"67.8\"\n            },\n            \"dew_point\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"60.7\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"78\"\n            }\n        },\n        \"indoor\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"69.6\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"57\"\n            }\n        },\n        \"rainfall\": {\n            \"rain_rate\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"in/hr\",\n                \"value\": \"0.00\"\n            },\n            \"daily\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"in\",\n                \"value\": \"0.00\"\n            },\n            \"event\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"in\",\n                \"value\": \"0.00\"\n            },\n            \"hourly\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"in\",\n                \"value\": \"0.00\"\n            },\n            \"weekly\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"in\",\n                \"value\": \"0.00\"\n            },\n            \"monthly\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"in\",\n                \"value\": \"1.82\"\n            },\n            \"yearly\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"in\",\n                \"value\": \"11.20\"\n            }\n        },\n        \"pressure\": {\n            \"relative\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"inHg\",\n                \"value\": \"30.00\"\n            },\n            \"absolute\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"inHg\",\n                \"value\": \"30.00\"\n            }\n        },\n        \"lightning\": {\n            \"count\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            }\n        },\n        \"temp_and_humidity_ch1\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"71.1\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"55\"\n            }\n        },\n        \"temp_and_humidity_ch2\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"67.8\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"62\"\n            }\n        },\n        \"temp_and_humidity_ch3\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"35.2\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"53\"\n            }\n        },\n        \"temp_and_humidity_ch4\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"70.3\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"57\"\n            }\n        },\n        \"temp_and_humidity_ch5\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"70.9\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"62\"\n            }\n        },\n        \"temp_and_humidity_ch6\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"72.0\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"53\"\n            }\n        },\n        \"temp_and_humidity_ch7\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"73.2\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"59\"\n            }\n        },\n        \"temp_and_humidity_ch8\": {\n            \"temperature\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"ºF\",\n                \"value\": \"75.0\"\n            },\n            \"humidity\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"%\",\n                \"value\": \"55\"\n            }\n        },\n        \"battery\": {\n            \"outdoor_t_rh_sensor\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"lightning_sensor\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"5\"\n            },\n            \"temp_humidity_sensor_ch1\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"temp_humidity_sensor_ch2\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"temp_humidity_sensor_ch3\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"temp_humidity_sensor_ch4\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"temp_humidity_sensor_ch5\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"temp_humidity_sensor_ch6\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"temp_humidity_sensor_ch7\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            },\n            \"temp_humidity_sensor_ch8\": {\n                \"time\": \"1676864372\",\n                \"unit\": \"\",\n                \"value\": \"0\"\n            }\n        }\n    }\n}"
+						}
+					]
+				}
+			],
+			"id": "bceab042-f86c-4fb7-9a76-904d6e76672f"
+		},
+		{
+			"name": "Write Message",
+			"item": [
+				{
+					"name": "DisplayMessage",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Display message command result OK\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.result).to.eql(\"OK\");",
+									"});",
+									"",
+									"",
+									"//console.info(\"Command Sent to Sign:\");",
+									"//console.info(\"com_port: \" + pm.collectionVariables.get(\"com_port\"));",
+									"//console.info(\"display_mode: HOLD\");",
+									"//console.info(\"message: <green>\" + pm.collectionVariables.get(\"current_temp\") + \"<degree>F <red><time>\");"
+								],
+								"type": "text/javascript",
+								"id": "febf605b-306e-4923-8eb9-2d1ec30f4901"
+							}
+						}
+					],
+					"id": "beb19683-4ae6-4b7a-9432-c4dd71468aa9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"com_port\": \"{{com_port}}\",\n  \"display_mode\": \"HOLD\",\n  \"message\": \"<green>{{current_temp}}<degree>F <red><time>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/Write/Message",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"Write",
+								"Message"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "67c016af-ec0d-4e8a-a4e9-e5a0dff6137c",
+							"name": "DisplayMessage",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"com_port\": \"{{com_port}}\",\n  \"display_mode\": \"HOLD\",\n  \"message\": \"<green>{{current_temp}}<degree>F <red><time>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Write/Message",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Write",
+										"Message"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.2.2 Python/3.9.6"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Feb 2023 03:39:58 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"OK\",\n    \"result_message\": \"Message displayed on sign\"\n}"
+						}
+					]
+				}
+			],
+			"id": "afb381dd-1caf-4c5d-a9d9-2aff780c184c"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "c1209b89-3456-4419-8086-22059e63791a"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "30246ab1-bdc5-47d0-9395-eab0db46c327"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "2ebe7398-0640-4d1e-92ef-74494e6c0656",
+			"key": "com_port",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "53c21d7f-6209-4a86-a92b-314322ff24ae",
+			"key": "military_time",
+			"value": ""
+		},
+		{
+			"id": "9b1f7d1e-1e85-4af9-abf4-f341ca3d5768",
+			"key": "current_day",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "9a726460-6854-4eaa-91f6-d8afa4c8c614",
+			"key": "current_temp",
+			"value": ""
+		},
+		{
+			"id": "4736dad7-ae10-4d5d-9a5f-253264fdf968",
+			"key": "ecowitt_url",
+			"value": "https://api.ecowitt.net",
+			"type": "string"
+		}
+	]
+}

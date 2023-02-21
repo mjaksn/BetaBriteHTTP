@@ -1,0 +1,258 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "paths": {
+    "/Enumerations/ControlCommands": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Available control commands and a description of each",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ControlCommandDTO"
+              }
+            }
+          }
+        },
+        "operationId": "get_control_commands",
+        "tags": [
+          "Enumerations"
+        ]
+      }
+    },
+    "/Enumerations/DisplayModes": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Available display modes and a description of each",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DisplayModeDTO"
+              }
+            }
+          }
+        },
+        "operationId": "get_display_modes",
+        "tags": [
+          "Enumerations"
+        ]
+      }
+    },
+    "/Enumerations/MarkupTokens": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Available markup tokens and a description of each ",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TokenDTO"
+              }
+            }
+          }
+        },
+        "operationId": "get_tokens",
+        "tags": [
+          "Enumerations"
+        ]
+      }
+    },
+    "/Write/ControlCommand": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "The result of trying to send the control command",
+            "schema": {
+              "$ref": "#/definitions/ActionResultDTO"
+            }
+          }
+        },
+        "operationId": "post_control_command",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CommandDTO"
+            }
+          }
+        ],
+        "tags": [
+          "Write"
+        ]
+      }
+    },
+    "/Write/Message": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "The outcome of the request to write a message",
+            "schema": {
+              "$ref": "#/definitions/ActionResultDTO"
+            }
+          }
+        },
+        "operationId": "Write a message to the sign",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/MessageDTO"
+            }
+          }
+        ],
+        "tags": [
+          "Write"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "BetaBrite API",
+    "version": "1.0",
+    "description": "A simple API for displaying messages on a BetaBrite Classic sign"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Enumerations",
+      "description": "Information about the enumerations used in calls to the endpoints which send data to the sign"
+    },
+    {
+      "name": "Write",
+      "description": "Operations that send data to the BetaBrite Classic sign"
+    }
+  ],
+  "definitions": {
+    "DisplayModeDTO": {
+      "required": [
+        "description",
+        "display_mode"
+      ],
+      "properties": {
+        "display_mode": {
+          "type": "string",
+          "description": "The name of the display mode"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the display mode"
+        }
+      },
+      "type": "object"
+    },
+    "ControlCommandDTO": {
+      "required": [
+        "control_command"
+      ],
+      "properties": {
+        "control_command": {
+          "type": "string",
+          "description": "The name of the control command"
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the control command"
+        }
+      },
+      "type": "object"
+    },
+    "TokenDTO": {
+      "required": [
+        "description",
+        "token_text"
+      ],
+      "properties": {
+        "token_text": {
+          "type": "string",
+          "description": "Description of the token's effect"
+        },
+        "description": {
+          "type": "string",
+          "description": "The text form of the token which can be inserted in a message"
+        }
+      },
+      "type": "object"
+    },
+    "CommandDTO": {
+      "required": [
+        "command"
+      ],
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "The control command to send to the sign",
+          "example": "string",
+          "enum": [
+            "SET_TIME",
+            "SET_TIME_FORMAT",
+            "SET_DAY_OF_WEEK"
+          ]
+        },
+        "parameter": {
+          "type": "string",
+          "description": "A parameter for the command"
+        }
+      },
+      "type": "object"
+    },
+    "ActionResultDTO": {
+      "required": [
+        "result",
+        "result_message"
+      ],
+      "properties": {
+        "result": {
+          "type": "string",
+          "description": "Indicates success or failure of the command"
+        },
+        "result_message": {
+          "type": "string",
+          "description": "Text description of the command result"
+        }
+      },
+      "type": "object"
+    },
+    "MessageDTO": {
+      "required": [
+        "display_mode",
+        "message"
+      ],
+      "properties": {
+        "display_mode": {
+          "type": "string",
+          "description": "The display mode to use when showing th message",
+          "example": "string",
+          "enum": [
+            "HOLD",
+            "FLASH",
+            "ROTATE"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "description": "The message, including markup tokens, to display on the sign"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "responses": {
+    "ParseError": {
+      "description": "When a mask can't be parsed"
+    },
+    "MaskError": {
+      "description": "When any error occurs on mask"
+    }
+  }
+}

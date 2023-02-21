@@ -1,0 +1,52 @@
+name: Update Static Swagger Doc
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+env:
+  FLASK_TESTING: True
+  FLASK_APP: app.py:app
+
+jobs:
+  update-static-swagger-doc:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "3.10" ]
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Start app
+        run: python -m flask --app app run &
+      - name: Update swagger.json from generated definition
+        uses: valitydev/action-download-file@v1
+        with:
+          url: http://127.0.0.1:5000/swagger.json
+          target-path: ${{ github.workspace }}/postman/schemas
+      - name: Lint and validate swagger file
+        uses: anyone-developer/anyone-validate-json@0.9.6
+        with:
+          file-extension: '.json'
+          ignore-files: 'README.md'
+          ignore-directories: '.git'
+          read-path: ${{ github.workspace }}/postman/schemas
+      - name: Commit new swagger.json
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Workflow Action
+          author_email: noemail@auto-action
+          message: 'Auto-update static swagger.json from generated definition'
+          add: ${{ github.workspace }}/postman/schemas/swagger.json
