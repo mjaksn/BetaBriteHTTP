@@ -1,6 +1,6 @@
 # BetaBrite HTTP API
 
-[![Postman API tests](https://github.com/mjaksn/BetaBriteAutomation/actions/workflows/postman.yml/badge.svg)](https://github.com/mjaksn/BetaBriteAutomation/actions/workflows/postman.yml)
+[![Postman API tests](https://github.com/mjaksn/BetaBriteAutomation/actions/workflows/postman.yml/badge.svg)](https://github.com/mjaksn/BetaBriteHTTP/actions/workflows/postman.yml)
 
 ***⚠ Be sure to read the [security advisory](https://github.com/mjaksn/BetaBriteAPI#-hosting-this-api-introduces-significant-security-risks-) before using this code***
 
